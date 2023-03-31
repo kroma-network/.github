@@ -11,9 +11,8 @@ The following actions will disqualify you from eligibility for a reward:
 
 #### The right way to disclose
 
-TODO: change email address.
 If you find any vulnerabilities in our products, please email Lightscale at
-[ryan@lightscale.io](mailto:ryan@lightscale.io). We appreciate detailed instructions for confirming the vulnerability.
+[security@wemixkanvas.io](mailto:security@wemixkanvas.io). We appreciate detailed instructions for confirming the vulnerability.
 We are going to operate a bounty program soon.
 
 ## How we disclose vulnerabilities

@@ -32,7 +32,7 @@ Alongside this policy, we also reserve the right to do either of the following:
 - to directly notify a subset of downstream users prior to making a public announcement
 
 This policy is based the Geth team’s
-[silent patch policy](https://geth.ethereum.org/docs/vulnerabilities/vulnerabilities#why-silent-patches).
+[silent patch policy](https://geth.ethereum.org/docs/developers/geth-developer/disclosures#why-slient-patches).
 
 ### Defensive measures during an incident
 

@@ -9,7 +9,8 @@ Please read and follow our [Code of Conduct](./CODE_OF_CONDUCT.md)!
 
 ## Prerequisite
 
-Please add `.gitmessage`.
+Each repository is recommended to provide a `.gitmessage`
+If the repository contains `.gitmessage`, please add `.gitmessage` and follow the convention.
 
 ```shell
 > git config commit.template /path/to/.gitmessage
@@ -41,7 +42,7 @@ We follow [google coding style](http://google.github.io/styleguide/).
 
 1. Leave the issues.
 2. Create a new branch with the issue number above like `feat/implement-xyz`.
-   Branch name should consist of [a-z|0-9|-]. The prefix keyword should be one of followings defined (Commit type)(#commit-type)
+   Branch name should consist of [a-z|0-9|-]. The prefix keyword should be one of followings defined [Commit type](#commit-type)
 3. Make your changes.
 4. Run a formatting tool if you make changes to codes.
 5. Run a lint tool if you make changes to codes.
@@ -83,8 +84,20 @@ Must be one of the following:
 - **chore**: Fixes typo; no production code change.
 - **ci**: Changes to our CI configuration files and scripts.
 - **docs**: Documentation only changes.
-- **feat**: A new feature.
-- **fix**: A bug fix.
+- **feat**: A feature addition or removal.
+- **fix**: A bug fix. Just a fixing typo must be typed as a `chore`.
 - **perf**: A code change that improves performance.
 - **refac**: A code change that improves readability or code structure.
+  This may incur internal features. Also, this may increase performance, but it's different
+  from `perf` type in that performance improvement is not the goal.
 - **test**: Adding missing tests or correcting existing tests.
+
+**NOTE:** Some repositories such as `.github` itself only contain documents. So it may be
+redundant to add commit type. In this case, the commit type may be omitted and branching
+rule is also loosened, too.
+
+### Commit Scope
+
+Exceptionally, commit type `docs` may omit scope. e.g, docs: update contracts/README.md.
+If the change affects more than one scope, the commit scope may be omitted.
+e.g, feat: add Colosseum contract

@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://github.com/wemixkanvas/.github/blob/main/profile/Kanvas_Logo.png" width="100%"/>
+<img src="https://raw.githubusercontent.com/wemixkanvas/kanvas-brand-kit/main/assets/svg/primary_logos/WEMIX_Kanvas_Primary_Logo.svg" width="100%"/>
 </div>
 
 ## About Kanvas

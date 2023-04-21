@@ -12,7 +12,7 @@ The following actions will disqualify you from eligibility for a reward:
 #### The right way to disclose
 
 If you find any vulnerabilities in our products, please email Lightscale at
-[security@wemixkanvas.io](mailto:security@wemixkanvas.io). We appreciate detailed instructions for confirming the vulnerability.
+[security@kroma.network](mailto:security@kroma.network). We appreciate detailed instructions for confirming the vulnerability.
 We are going to operate a bounty program soon.
 
 ## How we disclose vulnerabilities

@@ -1,3 +1,3 @@
 # .github
 
-This is a default .github directory to be shared among Kanvas repositories.
+This is a default .github directory to be shared among Kroma repositories.

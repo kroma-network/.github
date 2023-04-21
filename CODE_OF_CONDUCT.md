@@ -60,7 +60,7 @@ representative at an online or offline event.
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
 reported to the community leaders responsible for enforcement at
-[contributing@wemixkanvas.io](mailto:contributing@wemixkanvas.io).
+[contributing@kroma.network](mailto:contributing@kroma.network).
 All complaints will be reviewed and investigated promptly and fairly.
 
 All community leaders are obligated to respect the privacy and security of the

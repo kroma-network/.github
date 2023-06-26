@@ -40,8 +40,8 @@ We follow [google coding style](http://google.github.io/styleguide/).
 
 ## Steps to commit
 
-1. Leave the issues.
-2. Create a new branch with the issue number above like `feat/implement-xyz`.
+1. Leave the issues. (If the issue is a straightforward one, it is indeed possible to skip this process.)
+2. Create a new branch whose name starts with an imperative verb above like `feat/implement-xyz`.
    Branch name should consist of [a-z|0-9|-]. The prefix keyword should be one of followings defined [Commit type](#commit-type)
 3. Make your changes.
 4. Run a formatting tool if you make changes to codes.

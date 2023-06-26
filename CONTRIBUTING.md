@@ -101,3 +101,11 @@ rule is also loosened, too.
 Exceptionally, commit type `docs` may omit scope. e.g, docs: update contracts/README.md.
 If the change affects more than one scope, the commit scope may be omitted.
 e.g, feat: add Colosseum contract
+
+## How to merge
+
+If a PR author receives `Comment` from reviewers, not `Request changes`, it is recommended
+to wait for the comment authors to confirm the changes that the PR author made after the review.
+Therefore, once the PR author has reflected all the requested changes, please re-request
+for the comment authors to review again so that they can review and `Approve` the changes.
+The PR author should merge and close the PR after receiving `Approve` from all comment authors.

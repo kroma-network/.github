@@ -34,6 +34,60 @@ pass below commands.
 > yarn test
 ```
 
+## For C++ developers
+
+### Formatter: [clang-format](https://clang.llvm.org/docs/ClangFormat.html)(version 15)
+
+Please install clang-format version 15 and run it before committing your changes.
+Ensure you use version 15 to prevent conflicts.
+
+For NPM:
+
+```shell
+> npm install -g clang-format
+```
+
+For MacOS:
+
+```shell
+> brew install clang-format
+```
+
+For Ubuntu - Version 14 is a default in Ubuntu, so you will need to upgrade to version 15:
+
+```shell
+> sudo apt install clang-format clang-format-15
+> sudo update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-15 100 --slave /usr/share/man/man1/clang-format.1.gz clang-format.1.gz /usr/share/man/man1/clang-format-15.1.gz
+[sudo] password for <user>:
+update-alternatives: using /usr/bin/clang-format-15 to provide /usr/bin/clang-format (clang-format) in auto mode
+> sudo update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-14 20 --slave /usr/share/man/man1/clang-format.1.gz clang-format.1.gz /usr/share/man/man1/clang-format-14.1.gz
+> sudo update-alternatives --config clang-format
+```
+
+**Run clang-format:**
+
+```shell
+> clang-format -i path/to/your/code
+```
+
+### Linter: [cpplint](https://github.com/cpplint/cpplint)
+
+cpplint is a tool for checking C++ code against Google's style guide. We've configured it to ignore certain warnings(`legal/copyright`, `whitespace/line_length`, `build/namespaces`, `runtime/references`) for our project.
+
+Before committing, ensure your changes pass the cpplint checks.
+
+**Install cpplint:**
+
+```shell
+> pip install cpplint
+```
+
+**Run cpplint:**
+
+```shell
+> cpplint path/to/your/code --filter=-legal/copyright,-whitespace/line_length,-build/namespaces,-runtime/references
+```
+
 ## Coding style
 
 We follow [google coding style](http://google.github.io/styleguide/).
@@ -49,10 +103,10 @@ We follow [google coding style](http://google.github.io/styleguide/).
 6. Run unittests if you make changes to codes.
 7. Rebase your local repository.
 
-  ```shell
-  > git fetch origin -p
-  > git rebase origin/dev
-  ```
+   ```shell
+   > git fetch origin -p
+   > git rebase origin/dev
+   ```
 
 ## What to check
 

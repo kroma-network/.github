@@ -1,11 +1,16 @@
 # Contribution
 
-Contributions are always welcome! You can report issues or bugs, suggest features
-or even implement and send pull request!
+Thank you for your interest in contributing to our projects!
 
-## Code of Conduct
+Feel free to dive in. Read the following sections to learn about how to ask questions and how to work on something. Whether you're looking to write code, contribute to documentation, report bugs, or just ask questions, we appreciate all forms of contribution.
 
-Please read and follow our [Code of Conduct](./CODE_OF_CONDUCT.md)!
+All members of our community are expected to follow our **[Code of Conduct](./CODE_OF_CONDUCT.md)**. In all our interactions, let's make sure to create a welcoming and friendly space for everyone.
+
+We're really glad you're reading this, because we need volunteer developers to help this project come to fruition.
+
+## Issues
+
+The best way to contribute to our projects is by opening a new issue or tackling one of the existing issues.
 
 ## Prerequisite
 
@@ -15,6 +20,12 @@ If the repository contains `.gitmessage`, please add `.gitmessage` and follow th
 ```shell
 > git config commit.template /path/to/.gitmessage
 ```
+
+## CI (Github Actions)
+
+We use GitHub Actions to verify that the code in your PR passes all our checks.
+
+When you submit or update your PR, a CI build will automatically start. A note will be added to the PR, and will indicate the current status of the build.
 
 ## For go developers
 
@@ -35,6 +46,8 @@ pass below commands.
 ```
 
 ## For C++ developers
+
+We use **[cpplint](https://github.com/cpplint/cpplint)** and **[clang-format](https://clang.llvm.org/docs/ClangFormat.html)** to keep our code clean and readable. If you want to make sure your code passes our checks and follows our rules, follow the guide below.
 
 ### Formatter: [clang-format](https://clang.llvm.org/docs/ClangFormat.html)(version 15)
 
@@ -67,7 +80,7 @@ update-alternatives: using /usr/bin/clang-format-15 to provide /usr/bin/clang-fo
 **Run clang-format:**
 
 ```shell
-> clang-format -i path/to/your/code
+> git diff --name-only HEAD origin/<branch-name-to-be-merged> | grep '\.\(cc\|h\)$' | xargs clang-format -style=file -i
 ```
 
 ### Linter: [cpplint](https://github.com/cpplint/cpplint)
@@ -85,7 +98,7 @@ Before committing, ensure your changes pass the cpplint checks.
 **Run cpplint:**
 
 ```shell
-> cpplint path/to/your/code --filter=-legal/copyright,-whitespace/line_length,-build/namespaces,-runtime/references
+> git diff --name-only HEAD origin/<branch-name-to-be-merged> | xargs cpplint --filter=-legal/copyright,-whitespace/line_length,-build/namespaces,-runtime/references
 ```
 
 ## Coding style

@@ -49,33 +49,43 @@ pass below commands.
 
 We use **[cpplint](https://github.com/cpplint/cpplint)** and **[clang-format](https://clang.llvm.org/docs/ClangFormat.html)** to keep our code clean and readable. If you want to make sure your code passes our checks and follows our rules, follow the guide below.
 
-### Formatter: [clang-format](https://clang.llvm.org/docs/ClangFormat.html)(version 15)
+### Formatter: [clang-format](https://clang.llvm.org/docs/ClangFormat.html)(version 17)
 
-Please install clang-format version 15 and run it before committing your changes.
-Ensure you use version 15 to prevent conflicts.
+Please install clang-format version 17 and run it before committing your changes.
+Ensure you use version 17 to prevent conflicts.
 
-For NPM:
+**For MacOS** (see [install guide](https://formulae.brew.sh/formula/clang-format)):
 
 ```shell
-> npm install -g clang-format
+> brew install clang-format@17
 ```
 
-For MacOS:
+**For Ubuntu** - Version 14 is a default in Ubuntu, so you will need to upgrade to version 17:
 
 ```shell
-> brew install clang-format
-```
-
-For Ubuntu - Version 14 is a default in Ubuntu, so you will need to upgrade to version 15:
-
-```shell
-> sudo apt install clang-format clang-format-15
-> sudo update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-15 100 --slave /usr/share/man/man1/clang-format.1.gz clang-format.1.gz /usr/share/man/man1/clang-format-15.1.gz
+> wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+> sudo add-apt-repository "deb http://apt.llvm.org/focal/ llvm-toolchain-focal-17 main"
+> sudo apt update
+> sudo apt install clang-format clang-format-17
+> sudo update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-17 100 --slave /usr/share/man/man1/clang-format.1.gz clang-format.1.gz /usr/share/man/man1/clang-format-17.1.gz
 [sudo] password for <user>:
-update-alternatives: using /usr/bin/clang-format-15 to provide /usr/bin/clang-format (clang-format) in auto mode
+update-alternatives: using /usr/bin/clang-format-17 to provide /usr/bin/clang-format (clang-format) in auto mode
 > sudo update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-14 20 --slave /usr/share/man/man1/clang-format.1.gz clang-format.1.gz /usr/share/man/man1/clang-format-14.1.gz
 > sudo update-alternatives --config clang-format
 ```
+
+**Using pip**:
+
+1. Download [source code](https://github.com/ssciwr/clang-format-wheel/releases/tag/v17.0.4).
+
+2. Unzip the source code.
+
+3. Run following commands.
+
+   ```shell
+   > cd path/to/source/code/clang-format-wheel-17.0.4
+   > pip install .
+   ```
 
 **Run clang-format:**
 

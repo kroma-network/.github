@@ -111,6 +111,35 @@ Before committing, ensure your changes pass the cpplint checks.
 > git diff --name-only HEAD origin/<branch-name-to-be-merged> | xargs cpplint --filter=-legal/copyright,-whitespace/line_length,-build/namespaces,-runtime/references
 ```
 
+### [Buildifier](https://github.com/bazelbuild/buildtools/blob/master/buildifier/README.md)
+
+buildifier is a tool for formatting bazel `.bazel` and `.bzl` files with a standard convention.
+
+Ensure you use version 6.4.0 to prevent conflicts. Check the appropriate release for your local environment [here](https://github.com/bazelbuild/buildtools/releases/tag/v6.4.0)
+
+**For MacOS:**
+
+```shell
+> curl -lo https://github.com/bazelbuild/buildtools/releases/download/v6.4.0/buildifier-darwin-amd64
+> chmod +x buildifier-darwin-amd64
+> sudo mv buildifier-darwin-amd64 /usr/local/bin/buildifier
+```
+
+**For Ubuntu:**
+
+```shell
+> wget https://github.com/bazelbuild/buildtools/releases/download/v6.4.0/buildifier-linux-amd64
+> chmod +x buildifier-linux-amd64
+> sudo mv buildifier-linux-amd64 /usr/local/bin/buildifier
+```
+
+**Run Buildifier:**
+
+```shell
+> find tachyon/ -iname "*.bazel" -o -iname "*.bzl" | xargs buildifier --lint=fix
+> find tachyon/ -iname "*.bazel" -o -iname "*.bzl" | xargs buildifier --mode=check
+```
+
 ## Coding style
 
 We follow [google coding style](http://google.github.io/styleguide/).

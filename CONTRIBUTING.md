@@ -196,6 +196,8 @@ Must be one of the following:
 - **refac**: A code change that improves readability or code structure.
   This may incur internal features. Also, this may increase performance, but it's different
   from `perf` type in that performance improvement is not the goal.
+- **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+  Other examples include sorting build targets or headers.
 - **test**: Adding missing tests or correcting existing tests.
 
 **NOTE:** Some repositories such as `.github` itself only contain documents. So it may be

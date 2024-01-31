@@ -162,10 +162,10 @@ We follow [google coding style](http://google.github.io/styleguide/).
 
 ## What to check
 
-Before Pull Request, you have to check followings first.
+Before creating a Pull Request, you must first check the following:
 
-- Whether there is typo in the subject and body of your commit.
-- Whether the subject of your commit explains well about your changes.
+- Whether there are typos in the subject and body of your commit.
+- Whether the subject of your commit explains your changes accurately.
 - Whether your commits are well split in semantics.
 - Whether your PR contains any intermediate changes among commits.
 
@@ -207,6 +207,13 @@ rule is also loosened, too.
 Exceptionally, commit type `docs` may omit scope. e.g, docs: update contracts/README.md.
 If the change affects more than one scope, the commit scope may be omitted.
 e.g, feat: add Colosseum contract
+
+### Commit Rules
+
+Here are the following rules for commit messages:
+
+- The commit title should always start with an imperative verb.
+- Both the commit title and body should not exceed 80 characters.
 
 ## How to merge
 

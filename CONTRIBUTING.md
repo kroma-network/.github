@@ -25,20 +25,19 @@ Once you create this `.gitmessage`, please add it into your `.git/config` with t
 
 We use GitHub Actions to verify that the code in your PR passes all our checks.
 
-When you submit or update your PR, a CI build will automatically start. A note will be added to the PR, and will indicate the current status of the build.
+When you submit or update your PR, a CI build will automatically start. A note will be added to the PR that will indicate the current status of the build.
 
-## For go developers
+## For Go developers
 
-Please make sure your changes pass below commands.
+Please make sure your changes pass the command below.
 
 ```shell
 > go test ./...
 ```
 
-## For nodeJS developers
+## For NodeJS developers
 
-We use [yarn](https://yarnpkg.com/) as a package manager tool. Please make sure your changes
-pass below commands.
+We use [yarn](https://yarnpkg.com/) as a package manager tool. Please make sure your changes pass the commands below.
 
 ```shell
 > yarn lint
@@ -49,9 +48,9 @@ pass below commands.
 
 We use **[cpplint](https://github.com/cpplint/cpplint)** and **[clang-format](https://clang.llvm.org/docs/ClangFormat.html)** to keep our code clean and readable. If you want to make sure your code passes our checks and follows our rules, follow the guide below.
 
-### Formatter: [clang-format](https://clang.llvm.org/docs/ClangFormat.html)(version 17)
+### Formatter: [clang-format](https://clang.llvm.org/docs/ClangFormat.html) (version 17)
 
-Please install clang-format version 17 and run it before committing your changes.
+Please install clang-format (version 17) and run it before committing your changes.
 Ensure you use version 17 to prevent conflicts.
 
 **For MacOS** (see [install guide](https://formulae.brew.sh/formula/clang-format)):
@@ -76,11 +75,11 @@ update-alternatives: using /usr/bin/clang-format-17 to provide /usr/bin/clang-fo
 
 **Using pip**:
 
-1. Download [source code](https://github.com/ssciwr/clang-format-wheel/releases/tag/v17.0.4).
+1. Download the [source code](https://github.com/ssciwr/clang-format-wheel/releases/tag/v17.0.4).
 
 2. Unzip the source code.
 
-3. Run following commands.
+3. Run the following commands.
 
 ```shell
 > cd path/to/source/code/clang-format-wheel-17.0.4
@@ -95,7 +94,7 @@ update-alternatives: using /usr/bin/clang-format-17 to provide /usr/bin/clang-fo
 
 ### Linter: [cpplint](https://github.com/cpplint/cpplint)
 
-cpplint is a tool for checking C++ code against Google's style guide. We've configured it to ignore certain warnings(`legal/copyright`, `whitespace/line_length`, `build/namespaces`, `runtime/references`) for our project.
+Cpplint is a tool for checking C++ code against Google's style guide. We've configured it to ignore certain warnings (`legal/copyright`, `whitespace/line_length`, `build/namespaces`, `runtime/references`) for our project.
 
 Before committing, ensure your changes pass the cpplint checks.
 
@@ -113,9 +112,9 @@ Before committing, ensure your changes pass the cpplint checks.
 
 ### [Buildifier](https://github.com/bazelbuild/buildtools/blob/master/buildifier/README.md)
 
-buildifier is a tool for formatting bazel `.bazel` and `.bzl` files with a standard convention.
+Buildifier is a tool for formatting bazel `.bazel` and `.bzl` files with a standard convention.
 
-Ensure you use version 6.4.0 to prevent conflicts. Check the appropriate release for your local environment [here](https://github.com/bazelbuild/buildtools/releases/tag/v6.4.0)
+Ensure you use version 6.4.0 to prevent conflicts. Check the appropriate release for your local environment [here](https://github.com/bazelbuild/buildtools/releases/tag/v6.4.0).
 
 **For MacOS:**
 
@@ -142,7 +141,7 @@ Ensure you use version 6.4.0 to prevent conflicts. Check the appropriate release
 
 ## Coding style
 
-We follow [google coding style](http://google.github.io/styleguide/).
+We follow the [Google style guide](http://google.github.io/styleguide/).
 
 ## General Workflow
 

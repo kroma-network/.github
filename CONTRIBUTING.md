@@ -2,11 +2,11 @@
 
 Thank you for your interest in contributing to our projects!
 
-Feel free to dive in. Read the following sections to learn about how to ask questions and how to work on something. Whether you're looking to write code, contribute to documentation, report bugs, or just ask questions, we appreciate all forms of contribution.
+Feel free to dive in. Read the following sections to learn about our workflow and standards. Whether you're looking to write code, contribute to documentation, report bugs, or just ask questions, we appreciate all forms of contribution.
 
 All members of our community are expected to follow our **[Code of Conduct](./CODE_OF_CONDUCT.md)**. In all our interactions, let's make sure to create a welcoming and friendly space for everyone.
 
-We're really glad you're reading this, because we need volunteer developers to help this project come to fruition.
+We're really glad you're reading this! Volunteer developers can help us quickly reach our goals and make our projects come to fruition.
 
 ## Issues
 
@@ -14,8 +14,8 @@ The best way to contribute to our projects is by opening a new issue or tackling
 
 ## Prerequisite
 
-Each repository is recommended to provide a `.gitmessage`
-If the repository contains `.gitmessage`, please add `.gitmessage` and follow the convention.
+We recommend that every repository provides a `.gitmessage`.
+Once you create this `.gitmessage`, please add it into your `.git/config` with the following command:
 
 ```shell
 > git config commit.template /path/to/.gitmessage
@@ -60,7 +60,7 @@ Ensure you use version 17 to prevent conflicts.
 > brew install clang-format@17
 ```
 
-**For Ubuntu** - Version 14 is a default in Ubuntu, so you will need to upgrade to version 17:
+**For Ubuntu** - Version 14 is the default version for Ubuntu, so you will need to upgrade to version 17:
 
 ```shell
 > wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
@@ -82,10 +82,10 @@ update-alternatives: using /usr/bin/clang-format-17 to provide /usr/bin/clang-fo
 
 3. Run following commands.
 
-   ```shell
-   > cd path/to/source/code/clang-format-wheel-17.0.4
-   > pip install .
-   ```
+```shell
+> cd path/to/source/code/clang-format-wheel-17.0.4
+> pip install .
+```
 
 **Run clang-format:**
 
@@ -144,83 +144,104 @@ Ensure you use version 6.4.0 to prevent conflicts. Check the appropriate release
 
 We follow [google coding style](http://google.github.io/styleguide/).
 
-## Steps to commit
+## General Workflow
 
-1. Leave the issues. (If the issue is a straightforward one, it is indeed possible to skip this process.)
-2. Create a new branch whose name starts with an imperative verb above like `feat/implement-xyz`.
-   Branch name should consist of [a-z|0-9|-]. The prefix keyword should be one of followings defined [Commit type](#commit-type)
-3. Make your changes.
-4. Run a formatting tool if you make changes to codes.
-5. Run a lint tool if you make changes to codes.
-6. Run unittests if you make changes to codes.
-7. Rebase your local repository.
+Follow this workflow when working on our repositories:
 
-   ```shell
-   > git fetch origin -p
-   > git rebase origin/dev
-   ```
+1. Select or create an issue.
+   - Note: If the "issue" is straightforward, you do not need to create a new issue.
+2. Create a new branch for this issue.
+3. On the new branch, make your changes to solve the issue.
+   - If you work on the code...
+     1. Test your code against...
+        - A formatting tool
+        - A lint tool
+        - Unittests
+4. Commit your changes following our rules.
+5. Open a pull request for all your commits.
+6. Request and wait for reviews on your pull request.
+7. Fix any problems from comments or reviews received.
 
-## What to check
+The last reviewer will merge and close the PR once an `Approve` review is given by every other reviewer and the CI has finished running.
 
-Before creating a Pull Request, you must first check the following:
+## Branch Names
 
-- Whether there are typos in the subject and body of your commit.
-- Whether the subject of your commit explains your changes accurately.
-- Whether your commits are well split in semantics.
-- Whether your PR contains any intermediate changes among commits.
+Branch names must only consist of `[a-z|0-9|-|/]` characters and be in the form `<type>/<subject>`.
+
+- `<type>` : One of the defined [Commit Types](#commit-type) we use.
+- `<subject>` : Starts with an imperative verb. Explains the goal of this branch.
+
+An example of a viable branch name is `feat/implement-xyz`.
+
+### Before opening a PR
+
+Before opening a pull request for all your commits, we request that you run a final self-check to reduce the amount of potentially trivial errors.
+Please ensure these rules are met:
+
+- No typos in the header and body of your commits.
+- The changes in each commit do not encompass more than one type of commit. (e.g. A commit that includes `style` and `test` changes should be separated into two different commits)
+- The subject of each commit accurately explains the changes made.
+- Your PR does not contain any intermediate changes (e.g. An error is made in one commit and rectified in the next commit) among commits.
 
 ## How to check your changes
 
-You can check above with `git` commands. just follow this guideline. you meet one of situations below.
-You can check your status by `git status`.
+Use the following `git` commands to check your changes by category.
+You can check your overall status with `git status`.
 
 - Changes not staged for commit: check with `git diff`.
 - Changes to be committed: check with `git diff --cached`.
 - Committed: check with `git log -p`.
 
-## Commit Message Format
+## Commit Messages
 
-We follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
+We follow the standards of [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), but have adapted some of the conventions to better fit our needs. Differences and more detailed explanations of some rules are included below.
 
 ### Commit Type
 
-Must be one of the following:
+The commit type must be one of the following:
 
 - **build**: Changes that affect the build system or external dependencies.
-- **chore**: Fixes typo; no production code change.
+- **chore**: Changes that fix typos (Does not change the production code).
 - **ci**: Changes to our CI configuration files and scripts.
 - **docs**: Documentation only changes.
 - **feat**: A feature addition or removal.
-- **fix**: A bug fix. Just a fixing typo must be typed as a `chore`.
+- **fix**: A bug fix (Note that fixing a typo must instead be labelled as `chore`).
 - **perf**: A code change that improves performance.
 - **refac**: A code change that improves readability or code structure.
-  This may incur internal features. Also, this may increase performance, but it's different
-  from `perf` type in that performance improvement is not the goal.
-- **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+  This change could increase performance, but should not be labelled as the `perf` type if performance improvement is not the goal.
+- **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc).
   Other examples include sorting build targets or headers.
 - **test**: Adding missing tests or correcting existing tests.
 
-**NOTE:** Some repositories such as `.github` itself only contain documents. So it may be
-redundant to add commit type. In this case, the commit type may be omitted and branching
-rule is also loosened, too.
+**NOTE:** Some repositories only need to use one type of commit, such as `.github` with `docs` commits. In these cases, the commit type may be omitted from commit messages and branch names.
 
 ### Commit Scope
 
-Exceptionally, commit type `docs` may omit scope. e.g, docs: update contracts/README.md.
-If the change affects more than one scope, the commit scope may be omitted.
-e.g, feat: add Colosseum contract
+In general, include the scope of the commit in the commit header (e.g. feat(zk)...).
+You may omit the scope when:
 
-### Commit Rules
+- The change affects more than one scope (e.g. feat: add Colosseum contract).
+- The commit type is `docs` (e.g. docs: update contracts/README.md.).
 
-Here are the following rules for commit messages:
+### Additional Rules
 
-- The commit title should always start with an imperative verb.
-- Both the commit title and body should not exceed 80 characters.
+- The commit subject should always start with an imperative verb.
+- Both the commit header and body should not exceed 80 characters.
 
-## How to merge
+### Reviews
 
-If a PR author receives `Comment` from reviewers, not `Request changes`, it is recommended
-to wait for the comment authors to confirm the changes that the PR author made after the review.
-Therefore, once the PR author has reflected all the requested changes, please re-request
-for the comment authors to review again so that they can review and `Approve` the changes.
-The PR author should merge and close the PR after receiving `Approve` from all comment authors.
+Reviews should be an interactive experience between the PR author and the reviewers. Unless, the review type is `Approve`, the PR author and the reviewers should acknowledge and work together on the reviews.
+
+Reviews should follow the following process:
+
+1. A reviewer leaves a `Comment` or a `Request Changes` review.
+2. The PR author acknowledges the review and/or asks follow-up questions.
+3. Once the PR author has all the information they need, they resolve the problem with new changes.
+4. The PR author re-requests the reviewer to check their new changes.
+5. Based on the reviewer's response, the process starts again or finishes.
+   1. Start again - More review is needed and the reviewer submits another `Comment` or `Request Changes` review.
+   2. Finish - All new changes are good and reviewer resolves their review.
+
+Note: Comments and reviews may only be resolved by their authors!
+
+Once a reviewer is satisfied with the commits, they will leave an `Approve` review with a comment such as "LGTM."

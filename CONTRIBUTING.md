@@ -258,3 +258,7 @@ You can check your overall status with `git status`.
 We use GitHub Actions to verify that the code in your PR passes all our checks.
 
 When you submit or update your PR, a CI build will automatically start. A note will be added to the PR that will indicate the current status of the build.
+
+## Questions?
+
+Always feel free to reach out to those actively working on the repositories for any questions you have.

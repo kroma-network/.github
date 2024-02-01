@@ -8,11 +8,9 @@ All members of our community are expected to follow our **[Code of Conduct](./CO
 
 We're really glad you're reading this! Volunteer developers can help us quickly reach our goals and make our projects come to fruition.
 
-## Issues
+## Setup
 
-The best way to contribute to our projects is by opening a new issue or tackling one of the existing issues.
-
-## Prerequisite
+### .gitmessage
 
 We recommend that every repository provides a `.gitmessage`.
 Once you create this `.gitmessage`, please add it into your `.git/config` with the following command:
@@ -21,11 +19,77 @@ Once you create this `.gitmessage`, please add it into your `.git/config` with t
 > git config commit.template /path/to/.gitmessage
 ```
 
-## CI (Github Actions)
+## General Workflow
 
-We use GitHub Actions to verify that the code in your PR passes all our checks.
+Follow this workflow when working on our repositories:
 
-When you submit or update your PR, a CI build will automatically start. A note will be added to the PR that will indicate the current status of the build.
+1. Select or create an issue.
+   - Note: If the "issue" is straightforward, you do not need to create a new issue.
+2. Create a new branch for this issue.
+3. On the new branch, make your changes to solve the issue.
+   - If you work on the code...
+     1. Use the [Google Style Guides](http://google.github.io/styleguide/) to standardize your code.
+     2. Test your code against...
+        - A formatting tool
+        - A lint tool
+        - Unittests
+4. Commit your changes following our rules below.
+5. Open a pull request for all your commits.
+6. Request and wait for reviews on your pull request.
+7. Fix any problems from comments or reviews received.
+
+The last reviewer will merge and close the PR once an `Approve` review is given by every other reviewer and the CI has finished running.
+
+## Issues
+
+The best way to contribute to our projects is by opening a new issue or tackling one of the existing issues.
+
+## Branch Names
+
+Branch names must only consist of `[a-z|0-9|-|/]` characters and be in the form `<type>/<subject>`.
+
+- `<type>` : One of the defined [Commit Types](#commit-type) we use.
+- `<subject>` : Starts with an imperative verb. Explains the goal of this branch.
+
+An example of a viable branch name is `feat/implement-xyz`.
+
+## Commit Messages
+
+We follow the standards of [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), but have adapted some of the conventions to better fit our needs. Differences and more detailed explanations of some rules are included below.
+
+### Commit Type
+
+The commit type must be one of the following:
+
+- **build**: Changes that affect the build system or external dependencies.
+- **chore**: Changes that fix typos (Does not change the production code).
+- **ci**: Changes to our CI configuration files and scripts.
+- **docs**: Documentation only changes.
+- **feat**: A feature addition or removal.
+- **fix**: A bug fix (Note that fixing a typo must instead be labelled as `chore`).
+- **perf**: A code change that improves performance.
+- **refac**: A code change that improves readability or code structure.
+  This change could increase performance, but should not be labelled as the `perf` type if performance improvement is not the goal.
+- **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc).
+  Other examples include sorting build targets or headers.
+- **test**: Adding missing tests or correcting existing tests.
+
+**NOTE:** Some repositories only need to use one type of commit, such as `.github` with `docs` commits. In these cases, the commit type may be omitted from commit messages and branch names.
+
+### Commit Scope
+
+In general, include the scope of the commit in the commit header (e.g. feat(zk)...).
+You may omit the scope when:
+
+- The change affects more than one scope (e.g. feat: add Colosseum contract).
+- The commit type is `docs` (e.g. docs: update contracts/README.md.).
+
+### Additional Rules
+
+- The commit subject should always start with an imperative verb.
+- Both the commit header and body should not exceed 80 characters.
+
+## Testing Changes
 
 ## For Go developers
 
@@ -76,9 +140,7 @@ update-alternatives: using /usr/bin/clang-format-17 to provide /usr/bin/clang-fo
 **Using pip**:
 
 1. Download the [source code](https://github.com/ssciwr/clang-format-wheel/releases/tag/v17.0.4).
-
 2. Unzip the source code.
-
 3. Run the following commands.
 
 ```shell
@@ -139,38 +201,7 @@ Ensure you use version 6.4.0 to prevent conflicts. Check the appropriate release
 > find tachyon/ -iname "*.bazel" -o -iname "*.bzl" | xargs buildifier --mode=check
 ```
 
-## Coding style
-
-We follow the [Google style guide](http://google.github.io/styleguide/).
-
-## General Workflow
-
-Follow this workflow when working on our repositories:
-
-1. Select or create an issue.
-   - Note: If the "issue" is straightforward, you do not need to create a new issue.
-2. Create a new branch for this issue.
-3. On the new branch, make your changes to solve the issue.
-   - If you work on the code...
-     1. Test your code against...
-        - A formatting tool
-        - A lint tool
-        - Unittests
-4. Commit your changes following our rules.
-5. Open a pull request for all your commits.
-6. Request and wait for reviews on your pull request.
-7. Fix any problems from comments or reviews received.
-
-The last reviewer will merge and close the PR once an `Approve` review is given by every other reviewer and the CI has finished running.
-
-## Branch Names
-
-Branch names must only consist of `[a-z|0-9|-|/]` characters and be in the form `<type>/<subject>`.
-
-- `<type>` : One of the defined [Commit Types](#commit-type) we use.
-- `<subject>` : Starts with an imperative verb. Explains the goal of this branch.
-
-An example of a viable branch name is `feat/implement-xyz`.
+## Pull Requests
 
 ### Before opening a PR
 
@@ -181,51 +212,6 @@ Please ensure these rules are met:
 - The changes in each commit do not encompass more than one type of commit. (e.g. A commit that includes `style` and `test` changes should be separated into two different commits)
 - The subject of each commit accurately explains the changes made.
 - Your PR does not contain any intermediate changes (e.g. An error is made in one commit and rectified in the next commit) among commits.
-
-## How to check your changes
-
-Use the following `git` commands to check your changes by category.
-You can check your overall status with `git status`.
-
-- Changes not staged for commit: check with `git diff`.
-- Changes to be committed: check with `git diff --cached`.
-- Committed: check with `git log -p`.
-
-## Commit Messages
-
-We follow the standards of [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), but have adapted some of the conventions to better fit our needs. Differences and more detailed explanations of some rules are included below.
-
-### Commit Type
-
-The commit type must be one of the following:
-
-- **build**: Changes that affect the build system or external dependencies.
-- **chore**: Changes that fix typos (Does not change the production code).
-- **ci**: Changes to our CI configuration files and scripts.
-- **docs**: Documentation only changes.
-- **feat**: A feature addition or removal.
-- **fix**: A bug fix (Note that fixing a typo must instead be labelled as `chore`).
-- **perf**: A code change that improves performance.
-- **refac**: A code change that improves readability or code structure.
-  This change could increase performance, but should not be labelled as the `perf` type if performance improvement is not the goal.
-- **style**: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc).
-  Other examples include sorting build targets or headers.
-- **test**: Adding missing tests or correcting existing tests.
-
-**NOTE:** Some repositories only need to use one type of commit, such as `.github` with `docs` commits. In these cases, the commit type may be omitted from commit messages and branch names.
-
-### Commit Scope
-
-In general, include the scope of the commit in the commit header (e.g. feat(zk)...).
-You may omit the scope when:
-
-- The change affects more than one scope (e.g. feat: add Colosseum contract).
-- The commit type is `docs` (e.g. docs: update contracts/README.md.).
-
-### Additional Rules
-
-- The commit subject should always start with an imperative verb.
-- Both the commit header and body should not exceed 80 characters.
 
 ### Reviews
 
@@ -244,3 +230,31 @@ Reviews should follow the following process:
 Note: Comments and reviews may only be resolved by their authors!
 
 Once a reviewer is satisfied with the commits, they will leave an `Approve` review with a comment such as "LGTM."
+
+## Useful Tips
+
+### Before Committing
+
+Before any commits, we recommend to rebase your local repository to prevent any conflicts.
+
+```shell
+> git fetch origin -p
+> git rebase origin/dev
+```
+
+### How to check your changes
+
+Use the following `git` commands to check your changes by category.
+You can check your overall status with `git status`.
+
+- Changes not staged for a commit: check with `git diff`.
+- Changes to be committed: check with `git diff --cached`.
+- Committed changes: check with `git log -p`.
+
+## Other
+
+### CI (Github Actions)
+
+We use GitHub Actions to verify that the code in your PR passes all our checks.
+
+When you submit or update your PR, a CI build will automatically start. A note will be added to the PR that will indicate the current status of the build.

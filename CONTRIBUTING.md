@@ -25,20 +25,20 @@ Follow this workflow when working on our repositories:
 
 1. Select or create an issue.
    - Note: If the "issue" is straightforward, you do not need to create a new issue.
-2. Create a new branch for this issue.
+2. Create a new branch for this issue following [our naming convention](#branch-names).
 3. On the new branch, make your changes to solve the issue.
    - If you work on the code...
      1. Use the [Google Style Guides](http://google.github.io/styleguide/) to standardize your code.
-     2. Test your code against...
+     2. [Test your code](#testing-changes) against...
         - A formatting tool
         - A lint tool
         - Unittests
-4. Commit your changes following our rules below.
-5. Open a pull request for all your commits.
+4. Commit your changes following our [rules](#commit-messages) below.
+5. Open a [pull request](#pull-requests) for all your commits.
 6. Request and wait for reviews on your pull request.
-7. Fix any problems from comments or reviews received.
+7. Fix any problems from comments or reviews received. See [Reviews](#reviews) for more.
 
-The last reviewer will merge and close the PR once an `Approve` review is given by every other reviewer and the CI has finished running.
+The last reviewer will merge and close the PR once an `Approve` review is given by every other reviewer and [the CI](#ci-github-actions) has finished running.
 
 ## Issues
 

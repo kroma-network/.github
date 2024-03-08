@@ -181,7 +181,7 @@ Ensure you use version 6.4.0 to prevent conflicts. Check the appropriate release
 **For MacOS:**
 
 ```shell
-> curl -lo https://github.com/bazelbuild/buildtools/releases/download/v6.4.0/buildifier-darwin-amd64
+> curl -LO https://github.com/bazelbuild/buildtools/releases/download/v6.4.0/buildifier-darwin-amd64
 > chmod +x buildifier-darwin-amd64
 > sudo mv buildifier-darwin-amd64 /usr/local/bin/buildifier
 ```

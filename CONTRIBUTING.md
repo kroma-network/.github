@@ -178,7 +178,7 @@ Buildifier is a tool for formatting bazel `.bazel` and `.bzl` files with a stand
 
 Ensure you use version 6.4.0 to prevent conflicts. Check the appropriate release for your local environment [here](https://github.com/bazelbuild/buildtools/releases/tag/v6.4.0).
 
-**For MacOS:**
+**For MacOS(Intel):**
 
 ```shell
 > curl -LO https://github.com/bazelbuild/buildtools/releases/download/v6.4.0/buildifier-darwin-amd64
@@ -186,12 +186,28 @@ Ensure you use version 6.4.0 to prevent conflicts. Check the appropriate release
 > sudo mv buildifier-darwin-amd64 /usr/local/bin/buildifier
 ```
 
-**For Ubuntu:**
+**For MacOS(Apple chip):**
+
+```shell
+> curl -LO https://github.com/bazelbuild/buildtools/releases/download/v6.4.0/buildifier-darwin-arm64
+> chmod +x buildifier-darwin-arm64
+> sudo mv buildifier-darwin-arm64 /usr/local/bin/buildifier
+```
+
+**For Ubuntu(AMD):**
 
 ```shell
 > wget https://github.com/bazelbuild/buildtools/releases/download/v6.4.0/buildifier-linux-amd64
 > chmod +x buildifier-linux-amd64
 > sudo mv buildifier-linux-amd64 /usr/local/bin/buildifier
+```
+
+**For Ubuntu(ARM):**
+
+```shell
+> wget https://github.com/bazelbuild/buildtools/releases/download/v6.4.0/buildifier-linux-arm64
+> chmod +x buildifier-linux-arm64
+> sudo mv buildifier-linux-arm64 /usr/local/bin/buildifier
 ```
 
 **Run Buildifier:**

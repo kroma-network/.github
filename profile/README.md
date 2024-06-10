@@ -1,5 +1,5 @@
 <div align="center">
-<img src="https://github.com/kroma-network/kroma-brand-kit/raw/main/assets/images/signature/Kroma-signature.svg"/>
+<img src="https://github.com/kroma-network/.github/raw/main/profile/image.svg"/>
 </div>
 
 ## About Kroma
